@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <!-- CSS Frameworks -->
+
+  <!-- Bootstrap 4.5.3 (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Font Awesome 5.15.1 (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+
+
+  <!-- JS Frameworks -->
+
+  <!-- Vue 2.6.12 -->
+  <script src="libs/vue.js" charset="utf-8"></script>
+
+  <!-- Custom CSS -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Business -- MaxCoach</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <header>
+      <!-- inizio navbar -->
+      <div class="nav_bar">
+        <div class="container-fluid">
+          <div class="row d-flex align-items-center">
+            <!-- logo -->
+            <div class="nav_logo ml-auto col-3">
+              <img src="img/dark-logo.png" alt="logo">
+            </div>
+            <!-- indice di navigazione -->
+            <div class="nav_index col-5">
+              <ul id="index" class="d-flex align-items-center">
+                <li class="pr-5">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Home
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="pr-5">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Pages
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="pr-5">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Courses
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="pr-5">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Features
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="pr-5">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Blog
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Shop
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- parte di destra con scelta lingua, utente e barra di ricerca -->
+            <div class="nav_right col-3 d-flex align-items-center justify-content-end">
+              <div class="languageChoice">
+                <img :src="'img/flags/' + langSelect + '.svg'" alt="flag-icon">
+                <select v-model="langSelect">
+                  <option value="en">English</option>
+                  <option value="it">Italiano</option>
+                  <option value="es">Español</option>
+                  <option value="ja">日本人</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                </select>
+              </div>
+              <i class="ml-3 mr-3 far fa-user-circle"></i>
+              <div class="search_bar">
+                <input class=" ml-3" type="search" placeholder="Search...">
+                <button class="btn btn-white"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fine navbar -->
+
+      <!-- inizio hero -->
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="left-text mt-5 col-4 d-flex flex-column justify-content-center">
+              <h4 class="mb-4">New Challenges, New Skills</h4>
+              <h1 class="mb-4">BUILD YOUR OWN LIFE COACHING BUSINESS</h1>
+              <p class="mb-4">Whole-Life Business Coaching for committed entrepreneurs</p>
+              <button class="btn btn-success">Get started today</button>
+            </div>
+          </div>
+        </div>
+        <div class="right-globe">
+          <div class="right-avatar">
+          </div>
+        </div>
+        <!-- toolbar fixed -->
+        <div class="toolbar d-flex flex-column align-items-center">
+          <i class="far fa-caret-square-left"></i>
+          <i class="mt-3 far fa-life-ring"></i>
+          <i class="mt-3 fas fa-book"></i>
+          <i class="mt-3 fas fa-shopping-cart"></i>
+        </div>
+      </div>
+      <!-- fine hero -->
+    </header>
+    <!-- inizio parte centrale -->
+    <main>
+      <!--prima sezione offers -->
+      <section class="offers container">
+        <div class="row">
+          <div class="col-12">
+            <h3>Let’s Dream Big Together</h3>
+            <h2>We are pioneers of the digital approach, using leading-edge technology to simplify procedures and apply
+              executive coaching in the new age of digitalization.</h2>
+          </div>
+          <div class="row first">
+            <div class="col-4 d-flex justify-content-between">
+              <i class="far fa-2x fa-lightbulb"></i>
+              <div class="text">
+                <h3>One to One</h3>
+                <p>Getting the necessary clarity about the current state to help you improve your game.</p>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-between">
+              <i class="fas fa-2x fa-map-marked-alt"></i>
+              <div class="text">
+                <h3>Anywhere</h3>
+                <p>Access to valuable and portable program which allow you to setup and live anywhere you want.</p>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-between">
+              <i class="fas fa-2x fa-history"></i>
+              <div class="text">
+                <h3>On Time</h3>
+                <p>Punctuality is our top priority because it's an essential criteria to assess a program quality.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 d-flex justify-content-between">
+              <i class="fas fa-2x fa-laptop"></i>
+              <div class="text">
+                <h3>Online Coures</h3>
+                <p>Online business coaching now offers you a very powerful way to empower your business into success.
+                </p>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-between">
+              <i class="far fa-2x fa-life-ring"></i>
+              <div class="text">
+                <h3>Consulting</h3>
+                <p>You will get a clear sense of direction for your business, thorough assessment and faster results.
+                </p>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-between">
+              <i class="fas fa-2x fa-cog"></i>
+              <div class="text">
+                <h3>Self Development</h3>
+                <p>Business Coaching often keep your focus and develop you both in a professional and personal way.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-dark">Learn more</button>
+            <button type="button" class="btn btn-dark">Get started today</button>
+          </div>
+        </div>
+      </section>
+      <!-- fine prima sezione offers -->
+
+      <!-- inizio seconda sezione explore parte uno -->
+      <section class="explore-first">
+        <div class=" container">
+          <div class="row">
+            <div class="col-12">
+              <h3>Let's Dream Big Together</h3>
+              <h1>Explore How can I help you</h1>
+            </div>
+            <div class="row justify-content-around">
+              <div class="col">
+                <div class="box">
+                  <div class="image-reference">
+                    <img src="img/home-business-service-slide-01.jpg" alt="">
+                  </div>
+                  <div class="text-description">
+                    <h3>Consultative Training</h3>
+                    <p>With a coach addressing multiple issues that are off balance, affecting your business in various
+                      unconsidered ways.</p>
+                  </div>
+                  <div class="discover-now d-flex align-items-center">
+                    <button>Discover now &#8594;</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="box">
+                  <div class="image-reference">
+                    <img src="img/home-business-service-slide-02.jpg" alt="">
+                  </div>
+                  <div class="text-description">
+                    <h3>Real Deal Coaching</h3>
+                    <p>Brings an exceptionally powerful opportunity. Being able to accept, to work with that
+                      opportunity.</p>
+                  </div>
+                  <div class="discover-now d-flex align-items-center">
+                    <button>Discover now &#8594;</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="box">
+                  <div class="image-reference">
+                    <img src="img/home-business-service-slide-03.jpg" alt="">
+                  </div>
+                  <div class="text-description">
+                    <h3>Advisor Training Program</h3>
+                    <p>Getting high quality, entrepreneur mindset driven online business coaching, is what is needed.
+                    </p>
+                  </div>
+                  <div class="discover-now d-flex align-items-center">
+                    <button>Discover now &#8594;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mt-5">
+              <div class="slider-img d-flex justify-content-center">
+                <a href="#">
+                  <i class="fas fa-circle"></i>
+                </a>
+                <a class="pl-4 pr-4" href="#">
+                  <i class="far fa-circle"></i>
+                </a>
+                <a href="#">
+                  <i class="far fa-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fine seconda sezione explore parte uno -->
+
+      <!-- inizio seconda sezione explore parte due -->
+      <section class="explore-second">
+        <div class=" container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h3>Let's Dream Big Together</h3>
+              <h1>Explore How can I help you</h1>
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <div id="box-1" class="box d-flex align-items-end">
+                  <div class="text-description d-flex flex-column justify-content-end">
+                    <span class="price">
+                      $40<span class="decimal-separator">.00</span>
+                    </span>
+                    <h4>Learning to Write as a Professional Author</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex justify-content-center">
+                <div id="box-2" class="box d-flex align-items-end">
+                  <div class="text-description d-flex flex-column justify-content-end">
+                    <span class="price">
+                      Free
+                    </span>
+                    <h4>Customer-centric Info-Tech Strategies</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex justify-content-center">
+                <div id="box-3" class="box d-flex align-items-end">
+                  <div class="text-description d-flex flex-column justify-content-end">
+                    <span class="price">
+                      $19<span class="decimal-separator">.00</span>
+                    </span>
+                    <h4>Open Programming Courses for Everyone: Python</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex justify-content-center">
+                <div id="box-4" class="box d-flex align-items-end">
+                  <div class="text-description d-flex flex-column justify-content-end">
+                    <span class="price">
+                      $26<span class="decimal-separator">.00</span>
+                    </span>
+                    <h4>Academic Listening and Note-taking</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-items-center">
+              <p>Take the control of their life back and start doing things to make their dream come true. <a
+                  href="#">View all courses &#8594;</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fine seconda sezione explore parte due -->
+
+      <!-- inizio terza sezione answers -->
+
+      <section class="answers">
+        <div class="background-img">
+        </div>
+        <div class="cube">
+          <img src="img/maxcoach-shape-07.png" alt="">
+        </div>
+        <div class="container-fluid">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-4">
+              <img src="img/home-business-video-poster.jpg" alt="">
+              <img src="img/icon-youtube-play.png" alt="youtube">
+            </div>
+            <div class="col-4">
+              <h1>To Thrive In Business Today, You’ll Need a Good Plan</h1>
+              <h3 id="clicked"><i class="fas fa-chevron-circle-up"></i> How can we help?</h3>
+              <p>How many courses you’ve been on, using however many techniques and methods. Unless you’ve come to realize the value of mindset, then you’ve yet to understand how success comes.
+
+                With everyone else’s mindset involved impacting too. Hence why business coaching is so crucial for success.</p>
+                <div class="horizontal-separator"></div>
+              <h3><i class="fas fa-chevron-circle-down"></i>Why would I need a business COACH?</h3>
+              <div class="horizontal-separator"></div>
+              <h3><i class="fas fa-chevron-circle-down"></i>What is one-on-one coaching?</h3>
+              <div class="horizontal-separator"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fine terza sezione answers -->
+
+      <!-- inizio quarta sezione events  -->
+      <section class="events">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h3>Wanna transform your life?</h3>
+              <h1>Upcoming Events</h1>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col mr-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    Texas, US</span>
+                    <h5 class="mt-2">Storytelling Workshop</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">22</div>
+                    <div class="event-date-month">NOV</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+              <div class="col ml-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    New York, US</span>
+                    <h5 class="mt-2">Painting Art Contest 2020</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">10</div>
+                    <div class="event-date-month">OCT</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col mt-4 mr-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    Hamburg, Germany</span>
+                    <h5 class="mt-2">International Art Fair 2020</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">23</div>
+                    <div class="event-date-month">NOV</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+              <div class="col mt-4 ml-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    Illinois, US</span>
+                    <h5 class="mt-2">Street Performance: Call for Artist</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">15</div>
+                    <div class="event-date-month">DEC</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col mt-4 mr-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    Illinois, US</span>
+                    <h5 class="mt-2">Consumer Food Safety Education Conference</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">22</div>
+                    <div class="event-date-month">JUL</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+              <div class="col mt-4 ml-3 d-flex">
+                <div class="mt-3 left-box">
+                  <span><i class="fas fa-map-marker-alt"></i>
+                    Dubai</span>
+                    <h5 class="mt-2">How meditation improve your mental health?</h5>
+                </div>
+                <div class="right-box align-self-center">
+                  <div class="event-date">
+                    <div class="event-date-day">12</div>
+                    <div class="event-date-month">AUG</div>
+                  </div>
+                  <button>Get ticket</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-items-center">
+              <p>Excited about our event? <a
+                  href="#">View all events &#8594;</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="curve">
+          <div class="curve-background"></div>
+        </div>
+      </section>
+      <!-- fine quarta sezione events -->
+
+      <!-- inizio quinta sezione love-us -->
+
+      <section class="love-us">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h3>People are praising Maxcoach</h3>
+              <h1>What make they love us?</h1>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>It's a choice of quality for people with special needs</h4>
+                <p>I'm a very strict person so I require everything to be organized and neat. Then, I'll be able to make things right and shine. MaxCoach guys just got me.</p>
+                <div class="info d-flex">
+                  <div id="profile-picture-1"></div>
+                  <div class="cite">
+                    <h6>FLORENCE THEMES</h6>
+                    <span>/ Multimedia Admin</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col ml-5 mr-5">
+                <h4>High level of efficiency and scientific teaching methods</h4>
+                <p>I am free to learn at my own pace, follow my own schedule and choose the subject I want to learn from the syllabus. Great study portal for people like me.</p>
+                <div class="info d-flex">
+                  <div id="profile-picture-2"></div>
+                  <div class="cite">
+                    <h6>MINA HOLLANCE</h6>
+                    <span>/ Freelancer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <h4>Professional team of specialists and passionate mentors at reach</h4>
+                <p>I need to get a certification for English proficiency and MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.</p>
+                <div class="info d-flex">
+                  <div id="profile-picture-3"></div>
+                  <div class="cite">
+                    <h6>MADLEY PONDOR</h6>
+                    <span>/ Private Tutor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mt-5">
+              <div class="slider-img d-flex justify-content-center">
+                <a href="#">
+                  <i id="clicked" class="fas fa-circle"></i>
+                </a>
+                <a class="pl-4 pr-4" href="#">
+                  <i class="fas fa-circle"></i>
+                </a>
+                <a href="#">
+                  <i class="fas fa-circle"></i>
+                </a>
+                <a class="pl-4" href="#">
+                  <i class="fas fa-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fine quinta sezione love-us -->
+
+      <!-- inizio sesta sezione newsletter -->
+      <section class="newsletter">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex flex-column align-items-center">
+              <h1>Subscribe <span>Newsletters</span></h1>
+              <p>Enter your email address to register to our newsletter subscription
+                delivered on a regular basis!</p>
+              <div class="subscribe d-flex">
+                <input type="text" placeholder="Enter your email">
+                <button>Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="circle-right"></div>
+        <div class="square"></div>
+        <div class="circle"><i class="far fa-circle"></i></div>
+      </section>
+      <!-- fine sesta sezione newsletter -->
+
+      <!-- inizio footer -->
+
+      <footer>
+      <div class="container">
+        <div class="row justify-content-around">
+          <div class="col-4 mt-5 mr-5">
+            <h5>Address</h5>
+            <p>382 NE 191st St # 87394 Miami, FL 33179-3899</p>
+            <p>+1 (305) 547-9909 (9am - 5pm EST, Monday - Friday)</p>
+            <a href="#">support@maxcoach.com</a>
+            <div class="social d-flex justify-content-between">
+              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-linkedin"></i>
+            </div>
+          </div>
+          <div class="col-2 ml-5 mt-5 mr-n5">
+            <h5>Explore</h5>
+            <p>start here</p>
+            <p>Blog</p>
+            <p>About us</p>
+          </div>
+          <div class="col-2 mt-5 mr-n5">
+            <p id="success">Success story</p>
+            <p>Courses</p>
+            <p>Contact us</p>
+          </div>
+          <div class="col-2 mt-5">
+            <h5>Information</h5>
+            <p>Membership</p>
+            <p>Purchase guide</p>
+            <p>Privacy policy</p>
+            <p>Terms of service</p>
+          </div>
+          <div class="row mt-5">
+            <div class="col mt-4">
+              <p>© 2020 Maxcoach. All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-up">
+        <i class="fas fa-long-arrow-alt-up"></i>
+      </div>
+      </footer>
+    </main>
+  </div>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
